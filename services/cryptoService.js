@@ -231,11 +231,30 @@ const DEFAULT_CRYPTO_DATA = [
  * @returns {Promise<Array>} List of cryptocurrencies
  */
 export async function fetchCryptoList(cryptoIds) {
+  // Validate input to prevent errors
+  if (!cryptoIds || !Array.isArray(cryptoIds) || cryptoIds.length === 0) {
+    console.log('Invalid cryptoIds input, using default crypto data');
+    return DEFAULT_CRYPTO_DATA.slice(0, 6); // Return some default data
+  }
+
   try {
+    // First check if API key is available, if not use default data
+    if (!API_KEY) {
+      console.log('No API key available, using default crypto data');
+      return DEFAULT_CRYPTO_DATA.filter(crypto => cryptoIds.includes(crypto.id));
+    }
+
     const idsParam = cryptoIds.join(',');
+    // Add timeout to prevent hanging requests
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000); // 10s timeout
+    
     const response = await fetch(
-      `${COINGECKO_BASE_URL}/coins/markets?vs_currency=usd&ids=${idsParam}&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=24h,7d`
+      `${COINGECKO_BASE_URL}/coins/markets?vs_currency=usd&ids=${idsParam}&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=24h,7d`,
+      { signal: controller.signal }
     );
+    
+    clearTimeout(timeoutId);
     
     if (!response.ok) {
       console.log('CoinGecko API error, using default crypto data');
@@ -246,6 +265,7 @@ export async function fetchCryptoList(cryptoIds) {
     if (data && data.length > 0) {
       return data;
     } else {
+      console.log('Empty data from API, using default crypto data');
       return DEFAULT_CRYPTO_DATA.filter(crypto => cryptoIds.includes(crypto.id));
     }
   } catch (error) {

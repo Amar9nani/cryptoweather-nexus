@@ -651,7 +651,29 @@ const DEFAULT_FORECAST_DATA = {
  */
 export async function fetchWeather(city) {
   try {
-    const response = await fetch(`${BASE_URL}/current.json?key=${API_KEY}&q=${city}&aqi=no`);
+    // Input validation
+    if (!city || typeof city !== 'string') {
+      console.log('Invalid city parameter, using default weather data');
+      return { ...DEFAULT_WEATHER_DATA['New York'] };
+    }
+    
+    // Check if API key is available
+    if (!API_KEY) {
+      console.log('No API key available, using default weather data');
+      const defaultCity = DEFAULT_WEATHER_DATA[city] || DEFAULT_WEATHER_DATA['New York'];
+      return { ...defaultCity };
+    }
+    
+    // Add timeout to prevent hanging requests
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000); // 10s timeout
+    
+    const response = await fetch(
+      `${BASE_URL}/current.json?key=${API_KEY}&q=${encodeURIComponent(city)}&aqi=no`,
+      { signal: controller.signal }
+    );
+    
+    clearTimeout(timeoutId);
     
     if (!response.ok) {
       console.log(`Weather API error for ${city}, using default data`);
@@ -679,7 +701,34 @@ export async function fetchWeather(city) {
  */
 export async function fetchWeatherForecast(city, days = 3) {
   try {
-    const response = await fetch(`${BASE_URL}/forecast.json?key=${API_KEY}&q=${city}&days=${days}&aqi=no&alerts=yes`);
+    // Input validation
+    if (!city || typeof city !== 'string') {
+      console.log('Invalid city parameter, using default forecast data');
+      return { ...DEFAULT_FORECAST_DATA['New York'] };
+    }
+    
+    // Validate days parameter
+    if (isNaN(days) || days < 1 || days > 7) {
+      days = 3; // Reset to default if invalid
+    }
+    
+    // Check if API key is available
+    if (!API_KEY) {
+      console.log('No API key available, using default forecast data');
+      const defaultCity = DEFAULT_FORECAST_DATA[city] || DEFAULT_FORECAST_DATA['New York'];
+      return { ...defaultCity };
+    }
+    
+    // Add timeout to prevent hanging requests
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000); // 10s timeout
+    
+    const response = await fetch(
+      `${BASE_URL}/forecast.json?key=${API_KEY}&q=${encodeURIComponent(city)}&days=${days}&aqi=no&alerts=yes`,
+      { signal: controller.signal }
+    );
+    
+    clearTimeout(timeoutId);
     
     if (!response.ok) {
       console.log(`Weather API forecast error for ${city}, using default data`);

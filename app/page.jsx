@@ -28,8 +28,11 @@ export default function Home() {
 
   // Fetch data on component mount
   useEffect(() => {
-    const cities = ['London', 'New York', 'Tokyo', 'Sydney', 'Berlin', 'Paris'];
-    const cryptoIds = ['bitcoin', 'ethereum', 'ripple', 'litecoin', 'cardano', 'polkadot'];
+    const cities = ['London', 'New York', 'Tokyo', 'Sydney', 'Paris', 'Berlin', 'Mumbai'];
+    const cryptoIds = [
+      'bitcoin', 'ethereum', 'ripple', 'litecoin', 'cardano', 'polkadot',
+      'solana', 'dogecoin', 'binancecoin', 'avalanche-2'
+    ];
     
     dispatch(fetchWeatherData(cities));
     dispatch(fetchCryptoData(cryptoIds));
@@ -47,8 +50,11 @@ export default function Home() {
   const refreshData = async () => {
     setRefreshing(true);
     try {
-      const cities = ['London', 'New York', 'Tokyo', 'Sydney', 'Berlin', 'Paris'];
-      const cryptoIds = ['bitcoin', 'ethereum', 'ripple', 'litecoin', 'cardano', 'polkadot'];
+      const cities = ['London', 'New York', 'Tokyo', 'Sydney', 'Paris', 'Berlin', 'Mumbai'];
+      const cryptoIds = [
+        'bitcoin', 'ethereum', 'ripple', 'litecoin', 'cardano', 'polkadot',
+        'solana', 'dogecoin', 'binancecoin', 'avalanche-2'
+      ];
       
       await Promise.all([
         dispatch(fetchWeatherData(cities)),
