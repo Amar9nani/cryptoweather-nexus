@@ -141,8 +141,8 @@ export default function Home() {
             Failed to load weather data. {weatherError}
           </div>
         ) : weatherLoading ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[1, 2, 3].map((i) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            {[1, 2, 3, 4, 5, 6, 7].map((i) => (
               <div key={i} className="card animate-pulse h-64">
                 <div className="h-6 bg-dark-200 rounded w-1/2 mb-4"></div>
                 <div className="h-12 bg-dark-200 rounded w-3/4 mb-4"></div>
@@ -152,8 +152,8 @@ export default function Home() {
             ))}
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {weather.slice(0, 3).map((city) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            {weather.map((city) => (
               <WeatherCard key={city.location?.name} city={city} />
             ))}
           </div>
@@ -173,8 +173,8 @@ export default function Home() {
             Failed to load cryptocurrency data. {cryptoError}
           </div>
         ) : cryptoLoading ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[1, 2, 3].map((i) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => (
               <div key={i} className="card animate-pulse h-64">
                 <div className="h-6 bg-dark-200 rounded w-1/2 mb-4"></div>
                 <div className="h-12 bg-dark-200 rounded w-3/4 mb-4"></div>
@@ -184,8 +184,8 @@ export default function Home() {
             ))}
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {cryptos.slice(0, 3).map((crypto) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            {cryptos.map((crypto) => (
               <CryptoCard key={crypto.id} crypto={crypto} />
             ))}
           </div>

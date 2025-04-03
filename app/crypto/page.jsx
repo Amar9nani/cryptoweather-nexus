@@ -18,7 +18,8 @@ export default function CryptoPage() {
   const defaultCryptos = [
     'bitcoin', 'ethereum', 'ripple', 'litecoin', 
     'cardano', 'polkadot', 'binancecoin', 'solana', 
-    'dogecoin', 'tron', 'stellar', 'chainlink'
+    'dogecoin', 'avalanche-2', 'tron', 'stellar', 
+    'chainlink', 'matic-network', 'shiba-inu'
   ];
   
   // Fetch crypto data on component mount
@@ -201,9 +202,9 @@ export default function CryptoPage() {
       {/* Crypto Cards Section */}
       <section>
         <h2 className="section-title">All Cryptocurrencies</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {cryptoLoading && sortedCryptos.length === 0 ? (
-            [...Array(6)].map((_, i) => (
+            [...Array(15)].map((_, i) => (
               <div key={i} className="card animate-pulse h-64">
                 <div className="h-6 bg-dark-200 rounded w-1/2 mb-4"></div>
                 <div className="h-12 bg-dark-200 rounded w-3/4 mb-4"></div>
