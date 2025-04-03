@@ -113,8 +113,156 @@ const DEFAULT_WEATHER_DATA = {
       gust_mph: 7.2,
       gust_kph: 11.5,
     }
+  },
+  'Sydney': {
+    location: {
+      name: 'Sydney',
+      region: 'New South Wales',
+      country: 'Australia',
+      lat: -33.87,
+      lon: 151.21,
+      localtime: new Date().toISOString(),
+      tz_id: 'Australia/Sydney'
+    },
+    current: {
+      temp_c: 22,
+      temp_f: 71.6,
+      condition: {
+        text: 'Sunny',
+        icon: '//cdn.weatherapi.com/weather/64x64/day/113.png',
+        code: 1000
+      },
+      wind_mph: 10.5,
+      wind_kph: 16.9,
+      wind_degree: 110,
+      wind_dir: 'ESE',
+      pressure_mb: 1018,
+      pressure_in: 30.06,
+      precip_mm: 0,
+      precip_in: 0,
+      humidity: 55,
+      cloud: 10,
+      feelslike_c: 22,
+      feelslike_f: 71.6,
+      vis_km: 10,
+      vis_miles: 6,
+      uv: 6,
+      gust_mph: 12.8,
+      gust_kph: 20.5,
+    }
+  },
+  'Paris': {
+    location: {
+      name: 'Paris',
+      region: 'Ile-de-France',
+      country: 'France',
+      lat: 48.87,
+      lon: 2.33,
+      localtime: new Date().toISOString(),
+      tz_id: 'Europe/Paris'
+    },
+    current: {
+      temp_c: 18,
+      temp_f: 64.4,
+      condition: {
+        text: 'Partly cloudy',
+        icon: '//cdn.weatherapi.com/weather/64x64/day/116.png',
+        code: 1003
+      },
+      wind_mph: 6.5,
+      wind_kph: 10.5,
+      wind_degree: 210,
+      wind_dir: 'SSW',
+      pressure_mb: 1010,
+      pressure_in: 29.83,
+      precip_mm: 0,
+      precip_in: 0,
+      humidity: 70,
+      cloud: 25,
+      feelslike_c: 18,
+      feelslike_f: 64.4,
+      vis_km: 10,
+      vis_miles: 6,
+      uv: 4,
+      gust_mph: 9.2,
+      gust_kph: 14.8,
+    }
+  },
+  'Berlin': {
+    location: {
+      name: 'Berlin',
+      region: 'Berlin',
+      country: 'Germany',
+      lat: 52.52,
+      lon: 13.40,
+      localtime: new Date().toISOString(),
+      tz_id: 'Europe/Berlin'
+    },
+    current: {
+      temp_c: 16,
+      temp_f: 60.8,
+      condition: {
+        text: 'Cloudy',
+        icon: '//cdn.weatherapi.com/weather/64x64/day/119.png',
+        code: 1006
+      },
+      wind_mph: 8.1,
+      wind_kph: 13,
+      wind_degree: 260,
+      wind_dir: 'W',
+      pressure_mb: 1011,
+      pressure_in: 29.86,
+      precip_mm: 0,
+      precip_in: 0,
+      humidity: 75,
+      cloud: 70,
+      feelslike_c: 16,
+      feelslike_f: 60.8,
+      vis_km: 10,
+      vis_miles: 6,
+      uv: 3,
+      gust_mph: 11.2,
+      gust_kph: 18,
+    }
+  },
+  'Mumbai': {
+    location: {
+      name: 'Mumbai',
+      region: 'Maharashtra',
+      country: 'India',
+      lat: 19.08,
+      lon: 72.88,
+      localtime: new Date().toISOString(),
+      tz_id: 'Asia/Kolkata'
+    },
+    current: {
+      temp_c: 32,
+      temp_f: 89.6,
+      condition: {
+        text: 'Mist',
+        icon: '//cdn.weatherapi.com/weather/64x64/day/143.png',
+        code: 1030
+      },
+      wind_mph: 9.4,
+      wind_kph: 15.1,
+      wind_degree: 270,
+      wind_dir: 'W',
+      pressure_mb: 1008,
+      pressure_in: 29.77,
+      precip_mm: 0,
+      precip_in: 0,
+      humidity: 70,
+      cloud: 25,
+      feelslike_c: 38.4,
+      feelslike_f: 101.1,
+      vis_km: 5,
+      vis_miles: 3,
+      uv: 7,
+      gust_mph: 11.9,
+      gust_kph: 19.1,
+    }
   }
-};
+}
 
 // Default forecast data
 const DEFAULT_FORECAST_DATA = {

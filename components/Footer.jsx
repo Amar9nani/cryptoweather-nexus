@@ -43,7 +43,11 @@ export default function Footer() {
         
         <div className="border-t border-dark-400 mt-6 pt-6 text-center md:text-left">
           <p className="text-light-600 text-xs">
-            &copy; {currentYear} CryptoWeather Nexus. All rights reserved.
+            &copy; {currentYear} CryptoWeather Nexus. All rights reserved. 
+            <span className="mx-1">|</span>
+            <a href="mailto:namarnadh.9@gmail.com" className="text-accent hover:text-white transition-colors duration-200">
+              namarnadh.9@gmail.com
+            </a>
           </p>
           <p className="text-light-600 text-xs mt-1">
             Data provided by WeatherAPI, CryptoCompare, and News API.

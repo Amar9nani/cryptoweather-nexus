@@ -53,8 +53,8 @@ export function initWebSocket() {
       }, 5000);
     };
     
-    socket.onerror = (error) => {
-      console.error('WebSocket error:', error);
+    socket.onerror = () => {
+      console.log('WebSocket connection error, using simulated data');
       
       // If socket is still open on error, close it
       if (socket && socket.readyState === WebSocket.OPEN) {
@@ -106,7 +106,11 @@ function getBasePrice(id) {
     'ripple': 0.50,
     'litecoin': 80,
     'cardano': 0.40,
-    'polkadot': 5.50
+    'polkadot': 5.50,
+    'solana': 118.42,
+    'dogecoin': 0.12,
+    'binancecoin': 548.32,
+    'avalanche-2': 25.64
   };
   
   return basePrices[id] || 100;
@@ -138,7 +142,11 @@ function handlePriceUpdate(priceData) {
         'ripple': 'XRP',
         'litecoin': 'Litecoin',
         'cardano': 'Cardano',
-        'polkadot': 'Polkadot'
+        'polkadot': 'Polkadot',
+        'solana': 'Solana',
+        'dogecoin': 'Dogecoin',
+        'binancecoin': 'BNB',
+        'avalanche-2': 'Avalanche'
       };
       
       store.dispatch(addNotification({
