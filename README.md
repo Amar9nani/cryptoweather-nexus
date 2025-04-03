@@ -79,6 +79,3 @@ Make sure to add your environment variables in the Vercel dashboard:
 - **Responsive Design First**: Built from the ground up to work on all device sizes
 - **Error Handling**: Graceful degradation when API calls fail
 
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
