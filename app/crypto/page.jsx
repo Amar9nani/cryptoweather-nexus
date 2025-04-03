@@ -104,7 +104,7 @@ export default function CryptoPage() {
       {favoriteCryptos.length > 0 && (
         <section className="mb-8">
           <h2 className="section-title">Your Favorite Cryptocurrencies</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {favoriteCryptos.map((crypto) => (
               <CryptoCard key={`fav-${crypto.id}`} crypto={crypto} />
             ))}
