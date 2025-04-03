@@ -12,14 +12,18 @@ export const metadata = {
   description: 'A modern dashboard for weather data, cryptocurrency information, and news with real-time updates',
   keywords: 'weather, cryptocurrency, news, dashboard, real-time, Next.js',
   authors: [{ name: 'Developer' }],
-  viewport: 'width=device-width, initial-scale=1',
+};
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
   themeColor: '#121212',
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-dark-500 text-white min-h-screen flex flex-col`}>
+      <body className={`${inter.className} bg-black text-white min-h-screen flex flex-col`}>
         <ReduxProvider>
           <div className="flex flex-col min-h-screen">
             <Navbar />

@@ -48,11 +48,15 @@ export default function NewsCard({ article }) {
       href={article.url} 
       target="_blank" 
       rel="noopener noreferrer"
-      className={`card flex transition-all duration-300 ${isHovered ? 'shadow-glow' : ''}`}
+      className="card flex transition-all duration-300"
+      style={{ boxShadow: isHovered ? '0 0 15px rgba(51, 102, 255, 0.5)' : 'none' }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="w-1/4 md:w-1/5 h-24 bg-dark-200 overflow-hidden rounded-lg mr-4 flex-shrink-0">
+      <div 
+        className="w-1/3 md:w-1/4 h-32 overflow-hidden rounded-lg mr-4 flex-shrink-0"
+        style={{ backgroundColor: '#1a1a1a' }}
+      >
         <div 
           className="w-full h-full bg-cover bg-center transition-all duration-300"
           style={{ 
@@ -64,15 +68,26 @@ export default function NewsCard({ article }) {
       
       <div className="flex-1 flex flex-col justify-between">
         <div>
-          <h3 className="font-semibold text-md line-clamp-2">{article.title}</h3>
+          <h3 className="font-semibold text-md" style={{
+            display: '-webkit-box',
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: 'vertical',
+            overflow: 'hidden'
+          }}>{article.title}</h3>
           {article.description && (
-            <p className="text-sm text-light-400 mt-1 hidden md:block line-clamp-1">
+            <p className="text-sm mt-1 hidden md:block" style={{
+              color: '#9e9e9e',
+              display: '-webkit-box',
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: 'vertical',
+              overflow: 'hidden'
+            }}>
               {article.description}
             </p>
           )}
         </div>
         
-        <div className="flex justify-between items-center mt-2 text-xs text-light-500">
+        <div className="flex justify-between items-center mt-2 text-xs" style={{ color: '#9e9e9e' }}>
           <div className="font-medium">{sourceName}</div>
           {article.publishedAt && <div>{formatDate(article.publishedAt)}</div>}
         </div>
