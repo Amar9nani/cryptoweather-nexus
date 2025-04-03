@@ -34,7 +34,7 @@ A modern, responsive dashboard built with Next.js that combines weather data, cr
 
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/cryptoweather-nexus.git
+   git clone https://github.com/Amar9nani/cryptoweather-nexus.git
    cd cryptoweather-nexus
    ```
 
@@ -54,7 +54,7 @@ A modern, responsive dashboard built with Next.js that combines weather data, cr
 
 4. Start the development server:
    ```
-   npm run dev
+   npx next dev
    # or
    yarn dev
    ```
